@@ -15,7 +15,7 @@ Rottenpotatoes::Application.routes.draw do
 	match "movies/sort_title/" =>"movies#sort_title", :as=> :sort_title
 	match "movies/test/:foo" =>"movies#test", :as=> :test
 	match "movies/:id/sortable" =>"movies#index"
-	match "movies/" =>"movies#index"
+	match "movies" =>"movies#index"
 	
   resources :movies  
 	
