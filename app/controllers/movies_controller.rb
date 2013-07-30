@@ -7,14 +7,21 @@ class MoviesController < ApplicationController
   end
 
   def index
+		
+		@css1 = ""
+		@css2 = ""
 		if params[:id] != nil
+			
 			if params[:id] == "1"
+				@css1 = "hilite"
 				@movies = Movie.find(:all, :order => "title")
 			end
 			if params[:id] == "2"
+					@css2 = "hilite"
 					@movies = Movie.find(:all, :order => "release_date")
 			end
 		else
+		
 			@movies = Movie.all
 		end
 			   
