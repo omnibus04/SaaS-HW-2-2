@@ -7,11 +7,15 @@ class MoviesController < ApplicationController
   end
 
   def index
-		
+	@test = params.inspect
+	@selected  = Hash.new
+	@selected = params["ratings"]
+	
+		@all_ratings = ['G','PG','PG-13','R']
 		@css1 = ""
 		@css2 = ""
-		if params[:id] != nil
-			
+		if params[:id] != nil || params['utf8'] != nil
+			@movies = Movie.all
 			if params[:id] == "1"
 				@css1 = "hilite"
 				@movies = Movie.find(:all, :order => "title")
@@ -20,8 +24,10 @@ class MoviesController < ApplicationController
 					@css2 = "hilite"
 					@movies = Movie.find(:all, :order => "release_date")
 			end
+	
 		else
-		
+			@full_selected = @all_ratings.collect { |v| [v,1] }
+			@selected = Hash[@full_selected]
 			@movies = Movie.all
 		end
 			   
