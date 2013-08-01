@@ -10,9 +10,14 @@ class MoviesController < ApplicationController
 	#@test = params.inspect
 	@selected  = Hash.new
 	@selected = params["ratings"]
+	@all_ratings = ['G','PG','PG-13','R']
+	if @selected == nil
+		@full_selected = @all_ratings.collect { |v| [v,1] }
+			@selected = Hash[@full_selected]
+	end
 	@test = ""
 	@selected.each_key {|key| @test += "ratings["+key.to_s()+"]=>1&"}
-		@all_ratings = ['G','PG','PG-13','R']
+		
 		@css1 = ""
 		@css2 = ""
 		if params[:id] != nil || params['utf8'] != nil

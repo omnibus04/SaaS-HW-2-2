@@ -24354,3 +24354,62 @@ Served asset /jquery_ujs.js - 304 Not Modified (6ms)
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-08-01 16:31:34 -0700
 Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/movies/" for 127.0.0.1 at 2013-08-01 16:36:36 -0700
+  Processing by MoviesController#index as HTML
+Completed 500 Internal Server Error in 0ms
+
+NoMethodError (undefined method `each_key' for nil:NilClass):
+  app/controllers/movies_controller.rb:14:in `index'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.6ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (3.1ms)
+
+
+Started GET "/movies" for 127.0.0.1 at 2013-08-01 16:36:41 -0700
+  Processing by MoviesController#index as HTML
+Completed 500 Internal Server Error in 0ms
+
+NoMethodError (undefined method `each_key' for nil:NilClass):
+  app/controllers/movies_controller.rb:14:in `index'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.8ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.6ms)
+
+
+Started GET "/movies" for 127.0.0.1 at 2013-08-01 16:39:45 -0700
+  Processing by MoviesController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `each_key' for [["G", 1], ["PG", 1], ["PG-13", 1], ["R", 1]]:Array):
+  app/controllers/movies_controller.rb:18:in `index'
+
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+Rendered /usr/local/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.2ms)
+
+
+Started GET "/movies" for 127.0.0.1 at 2013-08-01 16:40:13 -0700
+  Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.2ms)[0m  SELECT "movies".* FROM "movies" 
+Rendered movies/index.html.haml within layouts/application (14.6ms)
+Completed 200 OK in 23ms (Views: 21.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-08-01 16:40:13 -0700
+Served asset /application.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-08-01 16:40:13 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-08-01 16:40:13 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-08-01 16:40:13 -0700
+Served asset /application.js - 304 Not Modified (0ms)
