@@ -7,28 +7,34 @@ class MoviesController < ApplicationController
   end
 
   def index
-	@test = params.inspect
+	#@test = params.inspect
 	@selected  = Hash.new
 	@selected = params["ratings"]
-	
+	@test = ""
+	@selected.each_key {|key| @test += "ratings["+key.to_s()+"]=>1&"}
 		@all_ratings = ['G','PG','PG-13','R']
 		@css1 = ""
 		@css2 = ""
 		if params[:id] != nil || params['utf8'] != nil
 			@movies = Movie.all
+			#@test = @selected.keys.to_s()
+			@movies =Movie.where(rating: @selected.keys)
 			if params[:id] == "1"
 				@css1 = "hilite"
-				@movies = Movie.find(:all, :order => "title")
+				@movies = Movie.where(rating: @selected.keys).order("title ASC")
+				
 			end
 			if params[:id] == "2"
 					@css2 = "hilite"
-					@movies = Movie.find(:all, :order => "release_date")
+					@movies = Movie.where(rating: @selected.keys).order("release_date ASC")
 			end
 	
 		else
 			@full_selected = @all_ratings.collect { |v| [v,1] }
 			@selected = Hash[@full_selected]
 			@movies = Movie.all
+			
+			#@movies = Movie.where(rating: @selected.keys.first.to_s())
 		end
 			   
 		
